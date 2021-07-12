@@ -21,19 +21,27 @@
                         </div>
                         <div class="form-inline px-5 py-3">
                             <label>Email</label>
+                            @if($company->email == "")
+                            <input type="text" name="email" class="form-control mx-3 col-md-7 ml-auto" value="-"  readonly />
+                            @else
                             <input type="text" name="email" class="form-control mx-3 col-md-7 ml-auto" value="{{$company->email}}"  readonly />
+                            @endif
                         </div>
                         <div class="form-inline px-5 py-3">
                             <label>Logo</label>
                             @if($company->logo =="defaultLogo")
-                                <input type="text" name="email" class="form-control mx-3 col-md-7 ml-auto" value="" readonly />
+                                <input type="text" name="email" class="form-control mx-3 col-md-7 ml-auto" value="-" readonly />
                             @else
                                 <input type="text" name="email" class="form-control mx-3 col-md-7 ml-auto" value="{{$company->logo}}" readonly />
                             @endif
                         </div>
                         <div class="form-inline px-5 py-3">
                             <label>Website URL</label>
-                            <input type="text" name="website_url" class="form-control mx-3 col-md-7 ml-auto" value="{{$company->website_url}}" readonly />
+                            @if($company->website_url=="")
+                                <input type="text" name="website_url" class="form-control mx-3 col-md-7 ml-auto" value="-" readonly /> 
+                            @else
+                                <input type="text" name="website_url" class="form-control mx-3 col-md-7 ml-auto" value="{{$company->website_url}}" readonly />
+                            @endif
                         </div>
                         <div class="row justify-content-center my-4">
                             <form method="POST" action="{{route('company-delete',$company->id)}}">

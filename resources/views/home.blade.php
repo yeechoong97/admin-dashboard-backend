@@ -17,7 +17,7 @@
                     <!-- {{ __('You are logged in!') }} -->
                     <div class="row">
                         <a href="/companies" class="btn btn-primary mx-3">Manage Companies</a>
-                        <a href="#" class="btn btn-primary mx-3">Manage Employees</a>
+                        <a href="/employees" class="btn btn-primary mx-3">Manage Employees</a>
                 </div>
             </div>
         </div>

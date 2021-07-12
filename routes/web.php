@@ -32,3 +32,10 @@ Route::put('/companies/{id}/edit','CompanyController@update')->name('company-upd
 
 
 //Employee Route
+Route::get('/employees','EmployeeController@index')->name('employee-index');
+Route::get('/employees/create','EmployeeController@create')->name('employee-create');
+Route::post('/employees','EmployeeController@store')->name('employee-store');
+Route::get('/employees/{id}','EmployeeController@show')->name('employee-show');
+Route::delete('/employees/{id}','EmployeeController@destroy')->name('employee-delete');
+Route::get('/employees/{id}/edit','EmployeeController@edit')->name('employee-edit');
+Route::put('/employees/{id}/edit','EmployeeController@update')->name('employee-update');

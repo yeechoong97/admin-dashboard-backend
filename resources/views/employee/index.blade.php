@@ -5,41 +5,43 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header font-weight-bold h3 ">Company List<a href="/companies/create" class="btn-primary btn mb-2 float-right btn-sm">Create</a></div>
+                <div class="card-header font-weight-bold h3 ">Employees List<a href="/employees/create" class="btn-primary btn mb-2 float-right btn-sm">Create</a></div>
                 <div class="card-body">
                     <table class="table table-striped">    
                         <thead>
-                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Company</th>
                             <th>Email</th>
-                            <th>Website</th>
-                            <th>Employee(s)</th>
+                            <th>Phone</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            @foreach($companies as $company)
+                            @foreach($employees as $employee)
                                 <tr>
-                                    <td>{{$company->name}}</td>
+                                    <td>{{$employee->first_name}}</td>
+                                    <td>{{$employee->last_name}}</td>
+                                    <td>{{$employee->company->name}}</td>
                                     <td>
-                                        @if($company->email == "")
+                                        @if($employee->email=="")
                                             -
                                         @else
-                                            {{$company->email}}
+                                            {{$employee->email}}
                                         @endif
                                     </td>
                                     <td>
-                                        @if($company->website_url=="")
+                                        @if($employee->phone=="")
                                             -
                                         @else
-                                            {{$company->website_url}}
-                                        @endif    
+                                            {{$employee->phone}}
+                                        @endif
                                     </td>
-                                    <td>{{$company->employee->count()}}</td>
                                     <td>
-                                    <form method="POST" action="{{route('company-delete',$company->id)}}">
+                                    <form method="POST" action="{{route('employee-delete',$employee->id)}}">
                                         @method('delete')
                                         @csrf
-                                        <a href="/companies/{{$company->id}}" class="btn btn-primary btn-sm mx-1">View</a>
-                                        <a href="/companies/{{$company->id}}/edit" class="btn btn-success btn-sm mx-1">Edit</a>
+                                        <a href="/employees/{{$employee->id}}" class="btn btn-primary btn-sm mx-1">View</a>
+                                        <a href="/employees/{{$employee->id}}/edit" class="btn btn-success btn-sm mx-1">Edit</a>
                                         <button type="submit" class="btn btn-danger btn-sm mx-1">Delete</button>
                                     </form>
                                     </td>
@@ -47,19 +49,10 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $companies->links() }}
+                    {{ $employees->links() }}
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-
-<script>
-    window.onload = function() {
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist)
-        alert(msg);
-}
-</script>

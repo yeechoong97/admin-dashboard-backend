@@ -21,7 +21,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::orderBy('name','asc')->paginate(10);
+        $companies = Company::with('employee')->orderBy('name','asc')->paginate(10);
         return view('company.index',[
             'companies' => $companies
         ]);
@@ -137,9 +137,14 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $company = Company::findorFail($id);
-        Storage::disk('public')->delete('logo/'.$company->logo);
-        $company->delete();
-        return redirect()->route('company-index');
+        $company = Company::with('employee')->findorFail($id);
+        if($company->employee->count()>0)
+            return redirect()->route('company-index')->with('alert','Unable to delete '.$company->name.' company as it contains more than 1 employee.');
+        else
+        {
+            Storage::disk('public')->delete('logo/'.$company->logo);
+            $company->delete();
+            return redirect()->route('company-index');
+        }
     }
 }

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\EmployeeRequest;
+use App\Employee;
+use App\Company;
+
 
 class EmployeeController extends Controller
 {
@@ -13,7 +17,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::with('company')->orderBy('first_name','asc')->paginate(10);
+        return view('employee.index',[
+            'employees' => $employees
+        ]);
     }
 
     /**
@@ -23,7 +30,10 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $companies = Company::all();
+        return view('employee.create',[
+            'companies'=> $companies
+        ]);
     }
 
     /**
@@ -32,9 +42,17 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        //
+        $employees = Employee::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'company_id' => $request->company_id,
+            'email' => $request->email,
+            'phone' => $request->phone
+        ]);
+
+        return redirect()->route('employee-index');
     }
 
     /**
@@ -45,7 +63,11 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee = Employee::with('company')->findorFail($id);
+
+        return view('employee.show',[
+            'employee' => $employee
+        ]);
     }
 
     /**
@@ -56,7 +78,12 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::with('company')->findorFail($id);
+        $companies = Company::all();
+        return view('employee.edit',[
+            'employee' => $employee,
+            'companies' => $companies
+        ]);
     }
 
     /**
@@ -66,9 +93,12 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmployeeRequest $request, $id)
     {
-        //
+        $employee = Employee::findorFail($id);
+        $employee->fill($request->all());
+        $employee->save();
+        return redirect()->route('employee-show',$employee->id);
     }
 
     /**
@@ -79,6 +109,8 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::findorFail($id);
+        $employee->delete();
+        return redirect()->route('employee-index');
     }
 }
