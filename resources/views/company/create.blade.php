@@ -10,21 +10,50 @@
                 <div class="card-body">
                     <form method="POST" action="{{route('company-store')}}" enctype="multipart/form-data">
                     @csrf
-                        <div class="form-inline px-5 py-3">
+                        <div class="form-group row px-5 py-2">
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control mx-3 col-md-7 ml-auto" />
-                        </div>
-                        <div class="form-inline px-5 py-3">
+                            <div class="col-md-8 mx-3 ml-auto">
+                                <input type="text" name="name" class="form-control mx-3"/>
+                                @error('name')
+                                <span class="invalid-feedback ml-3" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror   
+                            </div>
+                        </div>  
+                        <div class="form-group row px-5 py-2">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-control mx-3 col-md-7 ml-auto" />
+                            <div class="col-md-8 mx-3 ml-auto">
+                                <input type="text" name="email" class="form-control mx-3" />
+                                @error('email')
+                                <span class="invalid-feedback ml-3" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror   
+                            </div>
                         </div>
-                        <div class="form-inline px-5 py-3">
+                        <div class="form-group row px-5 py-2">
                             <label>Logo</label>
-                            <input type="file" name="logo" class="mx-4 col-md-7 ml-auto" accept="image/*" />
+                            <div class="col-md-8 mx-3 ml-auto">
+                            <input type="file" name="logo" class="mx-4" accept="image/*" />
+                            <br/>
+                            @error('logo')
+                                <span class="invalid-feedback ml-3" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror   
+                            </div>
                         </div>
-                        <div class="form-inline px-5 py-3">
+                        <div class="form-group row px-5 py-2">
                             <label>Website URL</label>
-                            <input type="text" name="website_url" class="form-control mx-3 col-md-7 ml-auto" />
+                            <div class="col-md-8 mx-3 ml-auto">
+                            <input type="text" name="website_url" class="form-control mx-3" placeholder="https://google.com" />
+                            @error('website_url')
+                                <span class="invalid-feedback ml-3" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror   
+                            </div>
                         </div>
                         <div class="row justify-content-center my-4">
                             <a href="/companies" class="btn btn-danger mx-1">Cancel</a>

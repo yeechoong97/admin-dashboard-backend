@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Company;
+use App\Http\Requests\CompanyRequest;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,9 +43,9 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        $fileNameToStore= null;
+        $fileNameToStore= "defaultLogo";
         if($request->hasFile("logo"))
         {
             $fileNameWithExt = $request->file("logo");
@@ -93,15 +99,15 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, $id)
     {
         $company = Company::findorFail($id);
         $fileNameToStore= "defaultLogo";
 
         if($company->logo !="defaultLogo")
         {
-            if($request->current_logo == false)
-            Storage::disk('public')->delete('logo/'.$company->logo);
+            if($request->current_logo == "false")
+                Storage::disk('public')->delete('logo/'.$company->logo);
         }
 
         if($request->hasFile("logo"))

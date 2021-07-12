@@ -29,3 +29,6 @@ Route::get('/companies/{id}','CompanyController@show')->name('company-show');
 Route::delete('/companies/{id}','CompanyController@destroy')->name('company-delete');
 Route::get('/companies/{id}/edit','CompanyController@edit')->name('company-edit');
 Route::put('/companies/{id}/edit','CompanyController@update')->name('company-update');
+
+
+//Employee Route
