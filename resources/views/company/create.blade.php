@@ -13,7 +13,7 @@
                         <div class="form-group row px-5 py-2">
                             <label>Name</label>
                             <div class="col-md-8 mx-3 ml-auto">
-                                <input type="text" name="name" class="form-control mx-3"/>
+                                <input type="text" name="name" class="form-control mx-3" autofocus/>
                                 @error('name')
                                 <span class="invalid-feedback ml-3" role="alert">
                                     <strong>{{ $message }}</strong>

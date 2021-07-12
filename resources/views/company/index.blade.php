@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header font-weight-bold h3 ">Companies<a href="/companies/create" class="btn-primary btn mb-2 float-right btn-sm">Create</a></div>
                 <div class="card-body">
-
                     <table class="table table-striped">    
                         <thead>
                             <th>Name</th>
@@ -34,6 +33,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $companies->links() }}
                 </div>
             </div>
         </div>
