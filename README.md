@@ -39,6 +39,15 @@
 <p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Employee_Edit_dc0nks.png" width="600"></p>
 <br/>
 
+## Steps to install and use
+<ol>
+    <li>Run command: composer install</li>
+    <li>Run command: cp .env.example .env</li>
+    <li>Run command: php artisan key:generate</li>
+    <li>Create a database: admin_dashboard </li>
+    <li>Run command: php artisan migrate:fresh --seed</li>
+    <li>Run command: php artisan serve</li>
+</ol>
 
 
 
