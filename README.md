@@ -8,7 +8,36 @@
 </p>
 
 ## Project Screenshots
-<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Login_pfbmdo.png" width="400"></p>
+<label>Login</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Login_pfbmdo.png" width="600"></p>
+<br/>
+<label>Admin Home</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153869/backend/Admin_Home_fsjses.png" width="600"></p>
+<br/>
+<label>Company Index</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Company_Index_gxjivj.png" width="600"></p>
+<br/>
+<label>Company Create</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153869/backend/Company_Create_rxddiu.png" width="600"></p>
+<br/>
+<label>Company Show</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Company_Show_ftqlbx.png" width="600"></p>
+<br/>
+<label>Company Edit</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Company_Edit_ndlo4f.png" width="600"></p>
+<br/>
+<label>Employee Index</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Employee_Index_suj38t.png" width="600"></p>
+<br/>
+<label>Employee Create</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Employee_Create_mf1aji.png" width="600"></p>
+<br/>
+<label>Employee Show</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Employee_Show_iigldc.png" width="600"></p>
+<br/>
+<label>Employee Edit</label>
+<p align="left"><img src="https://res.cloudinary.com/fyp202105/image/upload/v1626153868/backend/Employee_Edit_dc0nks.png" width="600"></p>
+<br/>
 
 
 
