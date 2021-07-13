@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header font-weight-bold h3 text-center">Edit Employee Details</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('employee-update',$employee->id)}}">
+                    <form method="POST" action="/employees/{{$employee->id}}">
                         @method('PUT')
                         @csrf
                         <div class="form-group row px-5 py-2">

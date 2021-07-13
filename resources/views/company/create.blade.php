@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header font-weight-bold h3">Create New Company</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('company-store')}}" enctype="multipart/form-data">
+                    <form method="POST" action="/companies" enctype="multipart/form-data">
                     @csrf
                         <div class="form-group row px-5 py-2">
                             <label>Name</label>

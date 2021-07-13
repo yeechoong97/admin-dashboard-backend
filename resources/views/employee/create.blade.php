@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header font-weight-bold h3">Create New Employee</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('employee-store')}}">
+                    <form method="POST" action="/employees">
                     @csrf
                         <div class="form-group row px-5 py-2">
                             <label>First Name</label>

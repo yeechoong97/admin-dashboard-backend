@@ -53,7 +53,7 @@
                             @endif
                         </div>
                         <div class="row justify-content-center my-4">
-                            <form method="POST" action="{{route('employee-delete',$employee->id)}}">
+                            <form method="POST" action="/employees/{{$employee->id}}">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-danger mx-1">Delete</button>

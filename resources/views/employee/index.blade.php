@@ -37,7 +37,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                    <form method="POST" action="{{route('employee-delete',$employee->id)}}">
+                                    <form method="POST" action="/employees/{{$employee->id}}">
                                         @method('delete')
                                         @csrf
                                         <a href="/employees/{{$employee->id}}" class="btn btn-primary btn-sm mx-1">View</a>

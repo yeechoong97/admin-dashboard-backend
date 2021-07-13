@@ -35,7 +35,7 @@
                                     </td>
                                     <td>{{$company->employee->count()}}</td>
                                     <td>
-                                    <form method="POST" action="{{route('company-delete',$company->id)}}">
+                                    <form method="POST" action="/companies/{{$company->id}}">
                                         @method('delete')
                                         @csrf
                                         <a href="/companies/{{$company->id}}" class="btn btn-primary btn-sm mx-1">View</a>

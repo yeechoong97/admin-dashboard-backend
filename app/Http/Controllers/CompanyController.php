@@ -61,7 +61,7 @@ class CompanyController extends Controller
             'logo' => $fileNameToStore,
             'website_url' => $request->website_url,
         ]);
-        return redirect()->route('company-index');
+        return redirect('/companies');
     }
 
     /**
@@ -126,7 +126,7 @@ class CompanyController extends Controller
         $company->website_url = $request->website_url;
         $company->save();
 
-        return redirect()->route('company-show',$company->id);
+        return redirect("/companies/".$company->id);
     }
 
     /**
@@ -139,12 +139,12 @@ class CompanyController extends Controller
     {
         $company = Company::with('employee')->findorFail($id);
         if($company->employee->count()>0)
-            return redirect()->route('company-index')->with('alert','Unable to delete '.$company->name.' company as it contains more than 1 employee.');
+            return redirect('/companies')->with('alert','Unable to delete '.$company->name.' company as it contains more than 1 employee.');
         else
         {
             Storage::disk('public')->delete('logo/'.$company->logo);
             $company->delete();
-            return redirect()->route('company-index');
+            return redirect('/companies');
         }
     }
 }

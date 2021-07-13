@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header font-weight-bold h3 text-center">Edit Company Details</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('company-update',$company->id)}}" enctype="multipart/form-data">
+                    <form method="POST" action="/companies/{{$company->id}}" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="px-5 py-3 text-center">

@@ -57,7 +57,7 @@ class EmployeeController extends Controller
             'phone' => $request->phone
         ]);
 
-        return redirect()->route('employee-index');
+        return redirect('/employees');
     }
 
     /**
@@ -103,7 +103,7 @@ class EmployeeController extends Controller
         $employee = Employee::findorFail($id);
         $employee->fill($request->all());
         $employee->save();
-        return redirect()->route('employee-show',$employee->id);
+        return redirect('/employees/'.$employee->id);
     }
 
     /**
@@ -116,6 +116,6 @@ class EmployeeController extends Controller
     {
         $employee = Employee::findorFail($id);
         $employee->delete();
-        return redirect()->route('employee-index');
+        return redirect('/employees');
     }
 }

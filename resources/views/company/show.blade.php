@@ -44,7 +44,7 @@
                             @endif
                         </div>
                         <div class="row justify-content-center my-4">
-                            <form method="POST" action="{{route('company-delete',$company->id)}}">
+                            <form method="POST" action="/companies/{{$company->id}}">
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-danger mx-1">Delete</button>
